@@ -1,0 +1,441 @@
+﻿//2.2.1
+package Exercise1;
+//Example 1: Hello World.java
+//Text printing program
+
+public class HelloWorld {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("Nguyen Huy Hoang - 20225628");
+		System.out.println("Hello World");
+		System.out.println("Xin chao tat ca cac ban");
+		
+		// end of method main
+
+	}
+
+}
+
+
+//2.2.2
+package Bai2;
+
+import javax.swing.JOptionPane;
+
+public class FirstDialog {
+
+    public static void main(String[] args) {
+        JOptionPane.showMessageDialog(null, "Hello World, How are you");
+        System.exit(0);
+    }
+}
+
+
+//2.2.3
+package Exercise3;
+
+import javax.swing.JOptionPane;
+
+public class HelloNameDialog{
+	public static void main(String[] args) {
+		String result;
+		result = JOptionPane.showInputDialog("Please enter your name: ");
+		JOptionPane.showMessageDialog(null, "Hi "+result+ "!");
+		System.exit(0);
+	}
+}
+
+
+
+
+//2.2.4
+package Bai4;
+import javax.swing.JOptionPane;
+public class ShowTwoNumbers{
+	public static void main(String[] args) {
+		String strNum1, strNum2;
+		String strNotification = "You've just entered ";
+		
+		strNum1 = JOptionPane.showInputDialog(null, "Please input the first number: ","Input the first number",JOptionPane.INFORMATION_MESSAGE);
+		strNotification += strNum1 + " and ";
+		strNum2 = JOptionPane.showInputDialog(null, "Please input the second number: ","Input the second number",JOptionPane.INFORMATION_MESSAGE);
+		strNotification += strNum2 ;
+		
+		JOptionPane.showMessageDialog(null, strNotification, "Show two numbers", JOptionPane.INFORMATION_MESSAGE);
+		System.exit(0);
+	}
+}
+
+//2.2.5
+package exercise5;
+
+		import java.util.Scanner;
+
+		public class Calculator {
+
+		    public static void main(String[] args) {
+		        // Tạo Scanner để nhận đầu vào từ người dùng
+		        Scanner scanner = new Scanner(System.in);
+		        
+		        // Nhập số thứ nhất từ người dùng
+		        System.out.print("Điền số thứ nhất: ");
+		        String strNum1 = scanner.nextLine();
+		        double num1 = Double.parseDouble(strNum1); // Chuyển từ chuỗi sang double
+		        
+		        // Nhập số thứ hai từ người dùng
+		        System.out.print("Điền số thứ hai: ");
+		        String strNum2 = scanner.nextLine();
+		        double num2 = Double.parseDouble(strNum2); // Chuyển từ chuỗi sang double
+
+		        // Tính tổng, hiệu, tích
+		        double sum = num1 + num2;
+		        double difference = num1 - num2;
+		        double product = num1 * num2;
+
+		        // Kiểm tra nếu mẫu số (num2) không phải là 0 thì thực hiện phép chia
+		        if (num2 != 0) {
+		            double quotient = num1 / num2;
+		            System.out.println("Thương 2 số " + quotient);
+		        } else {
+		            System.out.println("Không thực hiện được phép chia");
+		        }
+
+		        // Hiển thị kết quả
+		        System.out.println("Tổng 2 số: " + sum);
+		        System.out.println("Hiệu 2 số: " + difference);
+		        System.out.println("Tích 2 số: " + product);
+		    }
+		
+
+
+	}
+
+
+//2.2.6
+package exercise6;
+import java.util.Scanner;
+
+public class giaiphuongtrinh {
+
+    // Phương trình bậc nhất ax + b = 0
+    public static void solveLinearEquation() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Nhập a (a ≠ 0): ");
+        double a = scanner.nextDouble();
+        System.out.print("Nhập b: ");
+        double b = scanner.nextDouble();
+        
+        if (a == 0) {
+            System.out.println("This is not a valid linear equation (a cannot be 0).");
+        } else {
+            double x = -b / a;
+            System.out.println("Solution: x = " + x);
+        }
+    }
+
+    // Hệ phương trình bậc nhất hai ẩn
+    public static void solveLinearSystem() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Nhập a11: ");
+        double a11 = scanner.nextDouble();
+        System.out.print("Nhập a12: ");
+        double a12 = scanner.nextDouble();
+        System.out.print("Nhập b: ");
+        double b = scanner.nextDouble();
+        System.out.print("Nhập a21: ");
+        double a21 = scanner.nextDouble();
+        System.out.print("Nhập a22: ");
+        double a22 = scanner.nextDouble();
+        System.out.print("Nhập c: ");
+        double c = scanner.nextDouble();
+        
+        // Tính các định thức
+        double D = a11 * a22 - a21 * a12;
+        double D1 = b * a22 - c * a12;
+        double D2 = a11 * c - a21 * b;
+
+        if (D == 0) {
+            if (D1 == 0 && D2 == 0) {
+                System.out.println("The system has infinitely many solutions.");
+            } else {
+                System.out.println("The system has no solution.");
+            }
+        } else {
+            double x1 = D1 / D;
+            double x2 = D2 / D;
+            System.out.println("Solution: x1 = " + x1 + ", x2 = " + x2);
+        }
+    }
+
+    // Phương trình bậc hai ax^2 + bx + c = 0
+    public static void solveQuadraticEquation() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter coefficient a (a ≠ 0): ");
+        double a = scanner.nextDouble();
+        System.out.print("Enter coefficient b: ");
+        double b = scanner.nextDouble();
+        System.out.print("Enter coefficient c: ");
+        double c = scanner.nextDouble();
+        
+        if (a == 0) {
+            System.out.println("This is not a valid quadratic equation (a cannot be 0).");
+            return;
+        }
+        
+        // Tính Delta
+        double delta = b * b - 4 * a * c;
+        
+        if (delta > 0) {
+            double x1 = (-b + Math.sqrt(delta)) / (2 * a);
+            double x2 = (-b - Math.sqrt(delta)) / (2 * a);
+            System.out.println("The equation has two distinct solutions: x1 = " + x1 + ", x2 = " + x2);
+        } else if (delta == 0) {
+            double x = -b / (2 * a);
+            System.out.println("The equation has one double root: x = " + x);
+        } else {
+            System.out.println("The equation has no real solution.");
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int choice;
+        
+        do {
+            System.out.println("\nChoose the type of equation to solve:");
+            System.out.println("1. First-degree equation (linear equation) with one variable");
+            System.out.println("2. System of first-degree equations with two variables");
+            System.out.println("3. Second-degree equation (quadratic equation) with one variable");
+            System.out.println("0. Exit");
+            System.out.print("Your choice: ");
+            choice = scanner.nextInt();
+            
+            switch (choice) {
+                case 1:
+                    solveLinearEquation();
+                    break;
+                case 2:
+                    solveLinearSystem();
+                    break;
+                case 3:
+                    solveQuadraticEquation();
+                    break;
+                case 0:
+                    System.out.println("Exiting...");
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+        } while (choice != 0);
+    }
+}
+
+
+//6.1
+package Bai1;
+import javax.swing.JOptionPane;
+public class ChoosingOption{
+	public static void main(String[] args) {
+		int option = JOptionPane.showConfirmDialog(null, "Do you want to change to the first class ticket?");
+		
+	    JOptionPane.showMessageDialog(null, "You've chosen: " + (option==JOptionPane.YES_OPTION?"Yes":"No"));
+	    System.exit(0);
+	}
+
+	
+}
+
+
+//6.2
+package Bai2;
+import java.util.Scanner;
+public class InputFromKeyboard {
+
+	public static void main(String[] args) {
+		Scanner keyboard = new Scanner(System.in);
+		System.out.println("What's your name?");
+		String strName = keyboard.nextLine();
+		System.out.println("How old are you?");
+		int iAge = keyboard.nextInt();
+		System.out.println("How tall are you(m)");
+		double dHeight = keyboard.nextDouble();
+		
+		//similar to other data types
+		//nextByte(), nextShort(), nextLong()
+		//nextFloat(), nextBoolean()
+		
+		System.out.println("Mrs/Ms " + strName + ", " + iAge + "years old. " + "Your height is " + dHeight + "."); 
+
+	}
+
+}
+
+
+
+//6.3
+package Bai3;
+import java.util.Scanner;
+public class PrintTriangle {
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		// Nhập chiều cao của tam giác
+        System.out.print("Nhập chiều cao của tam giác (n): ");
+        int n = scanner.nextInt();
+        // Vẽ tam giác
+        for (int i = 1; i <= n; i++) {
+            // In dấu cách (space) trước dấu sao
+            for (int j = 1; j <= n - i; j++) {
+                System.out.print(" ");
+            }
+            // In dấu sao (*)
+            for (int k = 1; k <= 2 * i - 1; k++) {
+                System.out.print("*");
+            }
+            // Xuống dòng sau khi in hết dấu sao của dòng
+            System.out.println();
+        }
+    }
+}
+
+
+
+//6.4
+package Bai4;
+import java.util.Scanner;
+public class DemSoNgayTrongThang {
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+        int month, year;
+
+        while (true) {
+            // Nhập tháng
+            System.out.print("Nhập tháng (1-12): ");
+            month = scanner.nextInt();
+
+            // Nhập năm
+            System.out.print("Nhập năm: ");
+            year = scanner.nextInt();
+
+            // Kiểm tra tháng và năm hợp lệ
+            if (month >= 1 && month <= 12) {
+                break;  // Nếu hợp lệ thì thoát vòng lặp
+            } else {
+                System.out.println("Tháng hoặc năm không hợp lệ. Vui lòng nhập lại.");
+            }
+        }
+
+        // Xác định số ngày của tháng
+        int daysInMonth;
+        switch (month) {
+            case 4: case 6: case 9: case 11:
+                daysInMonth = 30;
+                break;
+            case 2:
+                if (isLeapYear(year)) {
+                    daysInMonth = 29;  // Tháng 2 năm nhuận
+                } else {
+                    daysInMonth = 28;  // Tháng 2 năm không nhuận
+                }
+                break;
+            default:
+                daysInMonth = 31;
+        }
+
+        // Hiển thị kết quả
+        System.out.println("Tháng " + month + " năm " + year + " có " + daysInMonth + " ngày.");
+    }
+
+    // Hàm kiểm tra năm nhuận
+    public static boolean isLeapYear(int year) {
+        return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+    }
+
+
+	}
+
+//6.5
+package Bai5;
+import java.util.Arrays;
+import java.util.Scanner;
+public class Array {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+        // Nhập kích thước của mảng
+        System.out.print("Nhập số lượng phần tử của mảng: ");
+        int n = scanner.nextInt();
+        // Khởi tạo mảng
+        int[] array = new int[n];
+        // Nhập các phần tử của mảng
+        System.out.println("Nhập các phần tử của mảng:");
+        for (int i = 0; i < n; i++) {
+            System.out.print("Phần tử thứ " + (i + 1) + ": ");
+            array[i] = scanner.nextInt();
+        }
+        // Sắp xếp mảng
+        Arrays.sort(array);
+        System.out.println("Mảng sau khi sắp xếp: " + Arrays.toString(array));
+        // Tính tổng và giá trị trung bình
+        int sum = 0;
+        for (int num : array) {
+            sum += num;
+        }
+        double average = (double) sum / n;
+        // Hiển thị kết quả
+        System.out.println("Tổng của các phần tử trong mảng: " + sum);
+        System.out.println("Giá trị trung bình của các phần tử trong mảng: " + average);
+    }
+	}
+
+
+
+//6.6
+package Bai6;
+import java.util.Scanner;
+public class Matrix {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+        // Nhập kích thước của ma trận
+        System.out.print("Nhập số hàng của ma trận: ");
+        int rows = scanner.nextInt();
+        System.out.print("Nhập số cột của ma trận: ");
+        int columns = scanner.nextInt();
+        // Khởi tạo hai ma trận và ma trận kết quả với kiểu double
+        double[][] matrix1 = new double[rows][columns];
+        double[][] matrix2 = new double[rows][columns];
+        double[][] resultMatrix = new double[rows][columns];
+        // Nhập các phần tử cho ma trận thứ nhất (số thực)
+        System.out.println("Nhập các phần tử cho ma trận thứ nhất:");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                System.out.print("Phần tử [" + (i + 1) + "][" + (j + 1) + "]: ");
+                matrix1[i][j] = scanner.nextDouble();
+            }
+        }
+        // Nhập các phần tử cho ma trận thứ hai (số thực)
+        System.out.println("Nhập các phần tử cho ma trận thứ hai:");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                System.out.print("Phần tử [" + (i + 1) + "][" + (j + 1) + "]: ");
+                matrix2[i][j] = scanner.nextDouble();
+            }
+        }
+        // Cộng hai ma trận
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                resultMatrix[i][j] = matrix1[i][j] + matrix2[i][j];
+            }
+        }
+        // Hiển thị ma trận kết quả với chỉ số i, j từ 1
+        System.out.println("Kết quả của phép cộng hai ma trận:");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                System.out.printf("%.2f ", resultMatrix[i][j]);
+            }
+            System.out.println();  // Xuống dòng sau mỗi hàng
+        }
+    }
+}
+
+

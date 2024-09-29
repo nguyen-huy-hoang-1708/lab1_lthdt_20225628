@@ -1,0 +1,15 @@
+6.1
+-Câu 1: 
+N?u ngý?i dùng ch?n h?y, s? hi?n b?ng thông báo v?i n?i dung: 
+You've chosen: No
+-Câu 2:
+package Bai1;
+import javax.swing.JOptionPane;
+public class ChoosingOption{
+	public static void main(String[] args) {
+		int option = JOptionPane.showConfirmDialog(null, "Do you want to change to the first class ticket?");
+		
+	    JOptionPane.showMessageDialog(null, "You've chosen: " + (option==JOptionPane.YES_OPTION?"Yes":"No"));
+	    System.exit(0);
+	}
+}
